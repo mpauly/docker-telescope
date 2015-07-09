@@ -17,11 +17,6 @@ WORKDIR /src
 ADD run.sh /root/bin/run.sh
 RUN chmod +x /root/bin/run.sh
 
-# Create a /data folder
-RUN mkdir /data
-# This is weird but working, even when mounting a /data with -v
-RUN ln -s /src/.meteor/local/db /data/telescope
-
 # Making /src a volume avoids problems with copies between different docker layers
 VOLUME /src
 
