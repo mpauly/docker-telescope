@@ -22,5 +22,8 @@ RUN mkdir /data
 # This is weird but working, even when mounting a /data with -v
 RUN ln -s /src/.meteor/local/db /data/telescope
 
+# Making /src a volume avoids problems with copies between different docker layers
+VOLUME /src
+
 EXPOSE 3000
 CMD ["/root/bin/run.sh"]
